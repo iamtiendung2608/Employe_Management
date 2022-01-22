@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+                integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+                crossorigin="anonymous"></script>
+        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+</head>
+<body>
+	<form th:object="${employ}" th:action="@{/update}" method="post">
+		<input type="text" th:value="${employ.FirstName}">
+		<br>
+		<input type="text" th:value="${employ.LastName}">
+		<br>
+		<input type="text" th:value="${employ.Gender}">
+		<br>
+		<input type="text" th:value="${employ.Birthday}" id="date">
+		<button type="submit">Submit</button>
+	</form>
+	<script>
+		$('#date').datepicker()
+	</script>
+</body>
+</html>
