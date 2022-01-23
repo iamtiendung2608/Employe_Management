@@ -32,6 +32,12 @@ public class Employee {
 	public Employee() {
 		super();
 	}
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
 	public String getFirstName() {
 		return FirstName;
 	}
@@ -56,6 +62,7 @@ public class Employee {
 	public void setGender(String gender) {
 		Gender = gender;
 	}
+	
 }
 
 

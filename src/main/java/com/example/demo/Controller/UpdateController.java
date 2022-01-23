@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.data.Employee;
@@ -17,13 +18,8 @@ public class UpdateController {
 	private EmployeeInterface repo;
 	@RequestMapping("/update/{id}")
 	public String UpdateEmploy(@PathVariable("id")int id, Model model) {
-		model.addAttribute("employ", repo.findById(id));
+		model.addAttribute("employ", repo.findById(id).orElse(null));
 		return "UpdateEmploy";
-	}
-	@PostMapping("/update")
-	public String UpdateEmployee(@ModelAttribute("employ")Employee employ) {
-		repo.save(employ);
-		return "redirect:/";
 	}
 }
 

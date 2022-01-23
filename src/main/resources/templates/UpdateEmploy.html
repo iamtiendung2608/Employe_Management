@@ -8,18 +8,29 @@
                 integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
                 crossorigin="anonymous"></script>
         <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
 </head>
 <body>
-	<form th:object="${employ}" th:action="@{/update}" method="post">
-		<input type="text" th:value="${employ.FirstName}">
+	<div class="container">
+	<h1>Employee Management System</h1>
+		<hr>
+		<h2>Update Employee</h2>
+	<form  th:object="${employ}" th:action="@{/add}" method="post">
+	<input type="hidden" th:field="${employ.ID}">
+		<input class="form-control mb-4 col-4"  type="text" th:field="${employ.FirstName}">
 		<br>
-		<input type="text" th:value="${employ.LastName}">
+		<input class="form-control mb-4 col-4" type="text" th:field="${employ.LastName}">
 		<br>
-		<input type="text" th:value="${employ.Gender}">
+		<input class="form-control mb-4 col-4" type="text" th:field="${employ.Gender}">
 		<br>
-		<input type="text" th:value="${employ.Birthday}" id="date">
-		<button type="submit">Submit</button>
+		<input class="form-control mb-4 col-4" type="text" th:field="${employ.BirthDay}" id="date">
+		<button type="submit" class="btn btn-info col-2">Submit</button>
 	</form>
+	
+	</div>
+	<a th:href="@{/}">Home</a>
 	<script>
 		$('#date').datepicker()
 	</script>
