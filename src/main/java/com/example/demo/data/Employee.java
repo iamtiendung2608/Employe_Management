@@ -4,16 +4,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int ID;
+	@Pattern(regexp="[a-zA-Z]+",message="First Name has one word")
 	private String FirstName;
+	@Pattern(regexp="[a-zA-Z]+",message="Last Name has one word")
 	private String LastName;
-	private String BirthDay;
+	@Size(min=4,message="Gender mustn't be null")
 	private String Gender;
+	private String BirthDay;
 	public Employee(String firstName, String lastName, String birthDay, String gender) {
 		super();
 		FirstName = firstName;
